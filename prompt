@@ -2,69 +2,6 @@ Possuo um arquivo de dependencias que contém todas as colunas com os tipos dela
 dependencias:
 
 ```pyhton
-from pyspark.sql.types import *
-
-bq_table_name = "seguro_produto"
-columns_type = {
-	"hash_key": StringType,
-	"source": StringType,
-	"ps_id_produtoseguro": IntegerType,
-	"ps_id_emissor": IntegerType,
-	"ps_cd_produtoseguro": StringType,
-	"ps_nm_produtoseguro": StringType,
-	"ps_dc_produtoseguro": StringType,
-	"ps_id_seguradora": IntegerType,
-	"ps_fl_seguromensal": BooleanType,
-	"ps_fl_pagamentoantecipado": BooleanType,
-	"ps_qt_parcelasbonificacao": IntegerType,
-	"ps_tp_bonificacaomensal": IntegerType,
-	"ps_tp_devolucaocancelamento": IntegerType,
-	"ps_no_diasdevolucaocancelamento": IntegerType,
-	"ps_fl_validacaoadesao": BooleanType,
-	"ps_fl_excluido": BooleanType,
-	"ps_fl_possuiitem": IntegerType,
-	"ps_no_itens": IntegerType,
-	"ps_id_agrupamentoprodutoseguro": IntegerType,
-	"ps_fl_aceitaparcelamento": BooleanType,
-	"ps_no_maximoparcelas": IntegerType,
-	"ps_no_nop": StringType,
-	"ps_dc_textonotafiscal": StringType,
-	"ps_cd_integracaoap": StringType,
-	"ps_tp_integracaoap": StringType,
-	"ps_cd_grupopagamento": StringType,
-	"ps_dc_grupopagamento": StringType,
-	"ps_cd_contacontabil": StringType,
-	"ps_qt_parcelascancelamento": IntegerType,
-	"ps_fl_naoestornarparcelasnaopagas": BooleanType,
-	"ps_fl_postagemparcelacorte": BooleanType,
-	"ps_fl_envioseguradoramensal": BooleanType,
-	"ps_dc_sms": StringType,
-	"ps_fl_enviosms": BooleanType,
-	"aps_id_agrupamentoprodutoseguro": IntegerType,
-	"aps_nm_agrupamento": StringType,
-	"aps_dc_termoaceite": StringType,
-	"aps_no_ordemapresentacao": IntegerType,
-	"aps_id_emissor": IntegerType,
-	"aps_fl_ativo": BooleanType,
-	"seg_id_seguradora": IntegerType,
-	"seg_nm_seguradora": StringType,
-	"seg_id_endereco": IntegerType,
-	"seg_fl_ativo": BooleanType,
-	"seg_no_cnpj": StringType,
-	"dh_relatorio": TimestampType,
-	"operation": StringType,
-	"operation_sequence": IntegerType,
-	"ps_fl_permiteprimeiraparcelapaga": BooleanType,
-	"ps_fl_permiteresponsavelfinanceiro": BooleanType,
-	"ps_fl_permitemultiplasadesoes": BooleanType,
-	"ps_fl_validaprodutovenda": BooleanType,
-	"ps_fl_validanumeroserieprodutovenda": BooleanType,
-	"ps_fl_restituicaocancelamento": BooleanType,
-	"ps_fl_calculaparcelaporitem": BooleanType,
-	"ps_no_minimoitens": IntegerType,
-	"ps_fl_integracaoservicogs": BooleanType,
-	"production_date": DateType,
-}
 
 ```
 
@@ -72,14 +9,6 @@ QUERY:
 
 ```SQL
 
-query = """
-    SELECT
-        hash_key, source, ps_id_produtoseguro, ps_id_emissor, ps_cd_produtoseguro, ps_nm_produtoseguro, ps_dc_produtoseguro, ps_id_seguradora, ps_fl_seguromensal, ps_fl_pagamentoantecipado, ps_qt_parcelasbonificacao, ps_tp_bonificacaomensal, ps_tp_devolucaocancelamento, ps_no_diasdevolucaocancelamento, ps_fl_validacaoadesao, ps_fl_excluido, ps_fl_possuiitem, ps_no_itens, ps_id_agrupamentoprodutoseguro, ps_fl_aceitaparcelamento, ps_no_maximoparcelas, ps_no_nop, ps_dc_textonotafiscal, ps_cd_integracaoap, ps_tp_integracaoap, ps_cd_grupopagamento, ps_dc_grupopagamento, ps_cd_contacontabil, ps_qt_parcelascancelamento, ps_fl_naoestornarparcelasnaopagas, ps_fl_postagemparcelacorte, ps_fl_envioseguradoramensal, ps_dc_sms, ps_fl_enviosms, aps_id_agrupamentoprodutoseguro, aps_nm_agrupamento, aps_dc_termoaceite, aps_no_ordemapresentacao, aps_id_emissor, aps_fl_ativo, seg_id_seguradora, seg_nm_seguradora, seg_id_endereco, seg_fl_ativo, seg_no_cnpj, dh_relatorio, operation, operation_sequence, ps_fl_permiteprimeiraparcelapaga, ps_fl_permiteresponsavelfinanceiro, ps_fl_permitemultiplasadesoes, ps_fl_validaprodutovenda, ps_fl_validanumeroserieprodutovenda, ps_fl_restituicaocancelamento, ps_fl_calculaparcelaporitem, ps_no_minimoitens, ps_fl_integracaoservicogs, production_date
-    FROM `{p_id}.{d_id}.{tb}`
-    WHERE
-        production_date between '{dat_referencia_inferior}' and '{dat_referencia_superior}'
-
-""".
 
 ```
 
