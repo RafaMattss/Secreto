@@ -1,0 +1,13 @@
+Possuo um arquivo de dependencias que contém todas as colunas com os tipos delas em forma de dicionario. A partir do QUERY e do código de dependencias a seguir, elimine do dicionario as colunas que nao aparecem no QUERY.
+dependencias:
+```pyhton
+
+
+```
+QUERY:
+```SQL
+
+
+
+```
+Para a resposta traga apenas o dicionario final sem comentarios
