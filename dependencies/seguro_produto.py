@@ -1,7 +1,3 @@
-Possuo um arquivo de dependencias que contém todas as colunas com os tipos delas em forma de dicionario. A partir do QUERY e do código de dependencias a seguir, elimine do dicionario as colunas que nao aparecem no QUERY.
-dependencias:
-
-```pyhton
 from pyspark.sql.types import *
 
 bq_table_name = "seguro_produto"
@@ -65,22 +61,3 @@ columns_type = {
 	"ps_fl_integracaoservicogs": BooleanType,
 	"production_date": DateType,
 }
-
-```
-
-QUERY:
-
-```SQL
-
-query = """
-    SELECT
-        hash_key, source, ps_id_produtoseguro, ps_id_emissor, ps_cd_produtoseguro, ps_nm_produtoseguro, ps_dc_produtoseguro, ps_id_seguradora, ps_fl_seguromensal, ps_fl_pagamentoantecipado, ps_qt_parcelasbonificacao, ps_tp_bonificacaomensal, ps_tp_devolucaocancelamento, ps_no_diasdevolucaocancelamento, ps_fl_validacaoadesao, ps_fl_excluido, ps_fl_possuiitem, ps_no_itens, ps_id_agrupamentoprodutoseguro, ps_fl_aceitaparcelamento, ps_no_maximoparcelas, ps_no_nop, ps_dc_textonotafiscal, ps_cd_integracaoap, ps_tp_integracaoap, ps_cd_grupopagamento, ps_dc_grupopagamento, ps_cd_contacontabil, ps_qt_parcelascancelamento, ps_fl_naoestornarparcelasnaopagas, ps_fl_postagemparcelacorte, ps_fl_envioseguradoramensal, ps_dc_sms, ps_fl_enviosms, aps_id_agrupamentoprodutoseguro, aps_nm_agrupamento, aps_dc_termoaceite, aps_no_ordemapresentacao, aps_id_emissor, aps_fl_ativo, seg_id_seguradora, seg_nm_seguradora, seg_id_endereco, seg_fl_ativo, seg_no_cnpj, dh_relatorio, operation, operation_sequence, ps_fl_permiteprimeiraparcelapaga, ps_fl_permiteresponsavelfinanceiro, ps_fl_permitemultiplasadesoes, ps_fl_validaprodutovenda, ps_fl_validanumeroserieprodutovenda, ps_fl_restituicaocancelamento, ps_fl_calculaparcelaporitem, ps_no_minimoitens, ps_fl_integracaoservicogs, production_date
-    FROM `{p_id}.{d_id}.{tb}`
-    WHERE
-        production_date between '{dat_referencia_inferior}' and '{dat_referencia_superior}'
-
-""".
-
-```
-
-Para a resposta traga apenas o dicionario final sem comentarios
