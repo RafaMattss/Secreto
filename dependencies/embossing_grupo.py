@@ -1,0 +1,32 @@
+from pyspark.sql.types import *
+
+bq_table_name = "embossing_grupo"
+columns_type = {
+	"hash_key": StringType,
+	"source": StringType,
+	"id_embossinggrupo": IntegerType,
+	"nome": StringType,
+	"status": IntegerType,
+	"id_entidade": IntegerType,
+	"flagvinculoproduto": BooleanType,
+	"flagarquivounico": BooleanType,
+	"nomearquivolote": StringType,
+	"flagcompacta": BooleanType,
+	"flagcompactajunto": BooleanType,
+	"id_codigoprocessamento": StringType,
+	"flagconslistanegativa": StringType,
+	"tipoagendamento": StringType,
+	"horaagendamento": StringType,
+	"intervalodias": IntegerType,
+	"diasdomes": StringType,
+	"diasdasemana": StringType,
+	"dataproximoprocessamentoprevia": StringType,
+	"dataultimoprocessamentoprevia": StringType,
+	"dataproximoprocessamentoarquivo": StringType,
+	"dataultimoprocessamentoarquivo": StringType,
+	"dataanterioragendamentoprevia": StringType,
+	"dh_relatorio": StringType,
+	"operation": StringType,
+	"operation_sequence": IntegerType,
+	"production_date": DateType,
+}

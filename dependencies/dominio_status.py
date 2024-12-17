@@ -1,0 +1,36 @@
+from pyspark.sql.types import *
+
+bq_table_name = "dominio_status"
+columns_type = {
+    "hash_key": StringType,
+    "source": StringType,
+    "st_id_status": IntegerType,
+    "st_codigostatus": IntegerType,
+    "st_descricao": StringType,
+    "std_id_statusdescricoes": IntegerType,
+    "std_codigostatus": IntegerType,
+    "std_status": IntegerType,
+    "std_descricao": StringType,
+    "std_flagnegativsaldo": BooleanType,
+    "std_flagalteradatacobranca": BooleanType,
+    "std_flagmantemstatus": BooleanType,
+    "std_respautorizador": StringType,
+    "std_portadorcupomsaldo": StringType,
+    "std_flagencargosmulta": BooleanType,
+    "std_flagemiteextrato": IntegerType,
+    "std_carteiracontabilbanco": StringType,
+    "std_statuscentralrisco": StringType,
+    "std_carteirapdd": StringType,
+    "std_flagapropriajuros": BooleanType,
+    "std_flagajustaencargosvencimento": BooleanType,
+    "std_flagajustedebitovencimento": BooleanType,
+    "std_flagdebitosfaturadosprox": BooleanType,
+    "std_statusdestinodesbloqueio": IntegerType,
+    "std_flagprocessalojista": BooleanType,
+    "std_flagenvarqtxmedia": BooleanType,
+    "std_id_emissor": IntegerType,
+    "dh_relatorio": TimestampType,
+    "operation": StringType,
+    "operation_sequence": IntegerType,
+    "production_date": DateType
+}
