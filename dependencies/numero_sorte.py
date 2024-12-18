@@ -1,0 +1,32 @@
+from pyspark.sql.types import *
+
+bq_table_name = "numero_sorte"
+columns_type = {
+	"hash_key": StringType,
+	"source": StringType,
+	"id": IntegerType,
+	"id_conta": IntegerType,
+	"cpfcnpj": StringType,
+	"id_numerosortelotes": IntegerType,
+	"numerosorte": IntegerType,
+	"numerosorteserie": IntegerType,
+	"mesreferencia": IntegerType,
+	"datavigenciainicio": TimestampType,
+	"datavigenciafim": TimestampType,
+	"vigente": IntegerType,
+	"datageracao": TimestampType,
+	"dataalteracao": TimestampType,
+	"codigocliente": StringType,
+	"codigocampanha": StringType,
+	"numeropfj": StringType,
+	"valorprestacao": DoubleType,
+	"statuscliente": StringType,
+	"descricaoerro1": StringType,
+	"descricaoerro2": StringType,
+	"descricaoerro3": StringType,
+	"descricaoerrogeracao": StringType,
+	"dh_relatorio": TimestampType,
+	"operation": StringType,
+	"operation_sequence": StringType,
+	"production_date": DateType,
+}
