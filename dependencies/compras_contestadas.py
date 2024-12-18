@@ -1,9 +1,6 @@
 from pyspark.sql.types import *
 
 bq_table_name = "compras_contestadas"
-from pyspark.sql.types import *
-
-bq_table_name = "compras_contestadas"
 columns_type = {
 	"hash_key": StringType,
 	"source": StringType,
