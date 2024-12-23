@@ -2,7 +2,6 @@ from pyspark.sql.types import *
 
 bq_table_name = "v_debit_account"
 columns_type = {
-    "next_due_date": StringType,
     "delivery_address": StringType,
     "product": StructType([]),
     "status_description": StringType,
