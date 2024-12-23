@@ -23,8 +23,6 @@ columns_type = {
     "status_description": StringType,
     "status_id": IntegerType,
     "status_upd_date": StringType,
-    "production_date_origem": IntegerType,
-    "dth_inc": TimestampType,
-    "production_date": IntegerType,
+    "production_date": IntegerType
 }
 

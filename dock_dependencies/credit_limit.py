@@ -18,7 +18,5 @@ columns_type = {
     "tranche_limit": DoubleType,
     "withdrawal_available_balance": DoubleType,
     "withdrawal_limit": DoubleType,
-    "production_date_origem": IntegerType,
-    "dth_inc": TimestampType,
-    "production_date": IntegerType,
+    "production_date": IntegerType
 }

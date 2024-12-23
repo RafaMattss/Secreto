@@ -18,7 +18,5 @@ columns_type = {
     "transaction_type": StringType,
     "transaction_type_description": StringType,
     "transaction_type_id": IntegerType,
-    "production_date_origem": IntegerType,
-    "dth_inc": TimestampType,
-    "production_date": IntegerType,
+    "production_date": IntegerType
 }

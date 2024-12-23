@@ -15,7 +15,5 @@ columns_type = {
     "type_adjustment_description": StringType,
     "type_adjustment_id": IntegerType,
     "user": StringType,
-    "production_date_origem": IntegerType,
-    "dth_inc": TimestampType,
-    "production_date": IntegerType,
+    "production_date": IntegerType
 }

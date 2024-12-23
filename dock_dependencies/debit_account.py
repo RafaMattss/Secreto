@@ -13,7 +13,5 @@ columns_type = {
     "create_date": StringType,
     "properties": StructType([]),
     "person_id": IntegerType,
-    "production_date_origem": IntegerType,
-    "dth_inc": TimestampType,
-    "production_date": IntegerType,
+    "production_date": IntegerType
 }

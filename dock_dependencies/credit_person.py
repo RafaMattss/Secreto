@@ -25,7 +25,5 @@ columns_type = {
     "spouse_name": StringType,
     "spouse_salary": DoubleType,
     "tax_identification_number": StringType,
-    "production_date_origem": IntegerType,
-    "dth_inc": TimestampType,
-    "production_date": IntegerType,
+    "production_date": IntegerType
 }
