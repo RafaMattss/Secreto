@@ -32,6 +32,6 @@ columns_type = {
 	"dh_relatorio": TimestampType,
 	"operation": StringType,
 	"operation_sequence": IntegerType,
-	"production_date": DateType,
-    "cli_fl_contacredito": BooleanType
+    "cli_fl_contacredito": BooleanType,
+    "production_date": DateType
 }

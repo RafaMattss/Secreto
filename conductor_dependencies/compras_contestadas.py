@@ -24,12 +24,12 @@ columns_type = {
 	"dh_relatorio": TimestampType,
 	"operation": StringType,
 	"operation_sequence": IntegerType,
-	"production_date": DateType,
-	"audit_control_number": StringType,
-	"data2reapresentacao": TimestampType,
-	"dataenviocb": TimestampType,
-	"motivo2reapresentacao": StringType,
 	"razaocb": StringType,
-	"status": IntegerType,
-	"id_safe": IntegerType
+    "motivo2reapresentacao": StringType,
+    "status": IntegerType,
+	"id_safe": IntegerType,
+	"audit_control_number": StringType,
+    "dataenviocb": TimestampType,
+	"data2reapresentacao": TimestampType,
+    "production_date": DateType
 }
