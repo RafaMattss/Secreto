@@ -8,10 +8,7 @@ from airflow.providers.ssh.operators.ssh import SSHOperator
 
 bucket_path = Variable.get("BUCKET_INTERMEDIARY")
 project_path = f"{bucket_path}/repair-raw-tables"
-project_path_setup = f"{project_path}/setup"
 
-project_path_tmp = "/tmp/repair-raw-tables"
-process_beeline = project_path_tmp + "/process_beeline.sh"
 conn = "jdbc:hive2://di-pnb-dev-spark3-master0.di-pnb-h.tyoz-sbgs.cloudera.site:2181/;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2;retries=5;sslTrustStore=/var/lib/cloudera-scm-agent/agent-cert/cm-auto-global_truststore.jks;trustStorePassword=TrbBpNN3cX11C61ZS3Z94C3dG1"
 process_beeline2 = "beeline -u '" + conn + "' -f "
 
@@ -51,7 +48,7 @@ with DAG(
         task_id="t_sync",
         ssh_conn_id="test-ssh",
         command=(
-            "gsutil rsync -d -r gs://airflow_bucket_bi-prd/repair-raw-tables/ "
+            "gsutil rsync -d -r gs://airflow_bucket_bi/repair-raw-tables/ "
             "/tmp/repair-raw-tables"
         ),
     )
