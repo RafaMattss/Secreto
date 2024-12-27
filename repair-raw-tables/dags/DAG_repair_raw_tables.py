@@ -12,7 +12,7 @@ project_path_setup = f"{project_path}/setup"
 
 project_path_tmp = "/tmp/repair-raw-tables"
 process_beeline = project_path_tmp + "/process_beeline.sh"
-conn = "jdbc:hive2://di-pnb-prd-spark3-master0.di-pnb-p.tyoz-sbgs.cloudera.site:2181,di-pnb-prd-spark3-master1.di-pnb-p.tyoz-sbgs.cloudera.site:2181,di-pnb-prd-spark3-masterx0.di-pnb-p.tyoz-sbgs.cloudera.site:2181/;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2;retries=5;sslTrustStore=/var/lib/cloudera-scm-agent/agent-cert/cm-auto-global_truststore.jks;trustStorePassword=SSnvzc7p1lvB7Ki3Z887Q8hM25"
+conn = "jdbc:hive2://di-pnb-dev-spark3-master0.di-pnb-h.tyoz-sbgs.cloudera.site:2181/;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2;retries=5;sslTrustStore=/var/lib/cloudera-scm-agent/agent-cert/cm-auto-global_truststore.jks;trustStorePassword=TrbBpNN3cX11C61ZS3Z94C3dG1"
 process_beeline2 = "beeline -u '" + conn + "' -f "
 
 start_date = datetime(2024, 12, 27)
