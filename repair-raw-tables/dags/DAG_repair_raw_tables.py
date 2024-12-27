@@ -8,7 +8,6 @@ from airflow.providers.ssh.operators.ssh import SSHOperator
 
 bucket_path = Variable.get("BUCKET_INTERMEDIARY")
 project_path = "gs://{bucket_path}/".format(bucket_path=bucket_path)
-project_path_setup = f"{bucket_path}/setup"
 
 conn = "jdbc:hive2://di-pnb-prd-spark3-master0.di-pnb-p.tyoz-sbgs.cloudera.site:2181,di-pnb-prd-spark3-master1.di-pnb-p.tyoz-sbgs.cloudera.site:2181,di-pnb-prd-spark3-masterx0.di-pnb-p.tyoz-sbgs.cloudera.site:2181/;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2;retries=5;sslTrustStore=/var/lib/cloudera-scm-agent/agent-cert/cm-auto-global_truststore.jks;trustStorePassword=SSnvzc7p1lvB7Ki3Z887Q8hM25"
 process_beeline2 = "beeline -u '" + conn + "' -f "
@@ -27,7 +26,7 @@ default_args = {
 
 with DAG(
     "repair_raw_tables",
-    start_date=datetime(2023, 3, 28),
+    start_date=start_date,
     description="Este projeto atualiza os dados das tabelas raw após a ingestão feita pelo BigQuery.",
     schedule="0 23 * * *",
     default_args=default_args,
@@ -49,8 +48,8 @@ with DAG(
         task_id="t_sync",
         ssh_conn_id="test-ssh",
         command=(
-            "gsutil rsync -d -r gs://airflow_bucket_bi-prd/pfin-unificacao-pefisa/ "
-            "/tmp/pfin-unificacao-pefisa"
+            "gsutil rsync -d -r gs://airflow_bucket_bi-prd/repair-raw-tables/ "
+            "/tmp/repair-raw-tables"
         ),
     )
 
@@ -60,7 +59,7 @@ with DAG(
             ssh_conn_id="test-ssh",
             command="sh "
             + process_beeline2
-            + 'repair_tables/raw_conductor.sql && echo "repair_conductor ok"',
+            + 'src/raw_conductor.sql && echo "repair_conductor ok"',
         )
 
         repair_dock = SSHOperator(
@@ -68,7 +67,7 @@ with DAG(
             ssh_conn_id="test-ssh",
             command="sh "
             + process_beeline2
-            + 'repair_tables/raw_dock.sql && echo "repair_dock ok"',
+            + 'src/raw_dock.sql && echo "repair_dock ok"',
         )
 
         repair_neurotech = SSHOperator(
@@ -76,7 +75,7 @@ with DAG(
             ssh_conn_id="test-ssh",
             command="sh "
             + process_beeline2
-            + 'repair_tables/raw_neurotech.sql && echo "repair_neurotech ok"',
+            + 'src/raw_neurotech.sql && echo "repair_neurotech ok"',
         )
 
     repair_conductor
