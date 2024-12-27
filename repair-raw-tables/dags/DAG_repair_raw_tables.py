@@ -7,8 +7,11 @@ from airflow.utils.task_group import TaskGroup
 from airflow.providers.ssh.operators.ssh import SSHOperator
 
 bucket_path = Variable.get("BUCKET_INTERMEDIARY")
-project_path = "gs://{bucket_path}/".format(bucket_path=bucket_path)
+project_path = f"{bucket_path}/repair-raw-tables"
+project_path_setup = f"{project_path}/setup"
 
+project_path_tmp = "/tmp/repair-raw-tables"
+process_beeline = project_path_tmp + "/process_beeline.sh"
 conn = "jdbc:hive2://di-pnb-prd-spark3-master0.di-pnb-p.tyoz-sbgs.cloudera.site:2181,di-pnb-prd-spark3-master1.di-pnb-p.tyoz-sbgs.cloudera.site:2181,di-pnb-prd-spark3-masterx0.di-pnb-p.tyoz-sbgs.cloudera.site:2181/;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2;retries=5;sslTrustStore=/var/lib/cloudera-scm-agent/agent-cert/cm-auto-global_truststore.jks;trustStorePassword=SSnvzc7p1lvB7Ki3Z887Q8hM25"
 process_beeline2 = "beeline -u '" + conn + "' -f "
 
