@@ -1,0 +1,1 @@
+MSCK REPAIR TABLE risco_gestao_risco_consolidado_hom.grc_visao_consolidada_hist;

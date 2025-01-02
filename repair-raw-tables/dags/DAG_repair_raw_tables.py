@@ -78,6 +78,14 @@ with DAG(
             + 'src/raw_neurotech.sql && echo "repair_neurotech ok"',
         )
 
+        repair_grc = SSHOperator(
+            task_id="repair_grc",
+            ssh_conn_id="test-ssh",
+            command="sh "
+            + process_beeline2
+            + 'src/risco_gestao_risco_consolidado.sql && echo "risco_gestao_risco_consolidado ok"',
+        )
+
     repair_conductor
     repair_dock
     repair_neurotech
