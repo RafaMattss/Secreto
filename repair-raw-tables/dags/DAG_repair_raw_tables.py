@@ -59,7 +59,7 @@ with DAG(
             ssh_conn_id="test-ssh",
             command="sh "
             + process_beeline2
-            + 'src/raw_conductor.sql && echo "repair_conductor ok"',
+            + '/tmp/repair-raw-tables/src/raw_conductor.sql && echo "repair_conductor ok"',
         )
 
         repair_dock = SSHOperator(
@@ -67,7 +67,7 @@ with DAG(
             ssh_conn_id="test-ssh",
             command="sh "
             + process_beeline2
-            + 'src/raw_dock.sql && echo "repair_dock ok"',
+            + '/tmp/repair-raw-tables/src/raw_dock.sql && echo "repair_dock ok"',
         )
 
         repair_neurotech = SSHOperator(
@@ -75,7 +75,7 @@ with DAG(
             ssh_conn_id="test-ssh",
             command="sh "
             + process_beeline2
-            + 'src/raw_neurotech.sql && echo "repair_neurotech ok"',
+            + '/tmp/repair-raw-tables/src/raw_neurotech.sql && echo "repair_neurotech ok"',
         )
 
         repair_grc = SSHOperator(
@@ -83,7 +83,7 @@ with DAG(
             ssh_conn_id="test-ssh",
             command="sh "
             + process_beeline2
-            + 'src/risco_gestao_risco_consolidado.sql && echo "risco_gestao_risco_consolidado ok"',
+            + '/tmp/repair-raw-tables/src/risco_gestao_risco_consolidado.sql && echo "risco_gestao_risco_consolidado ok"',
         )
 
         repair_ibpj = SSHOperator(
@@ -91,9 +91,11 @@ with DAG(
             ssh_conn_id="test-ssh",
             command="sh "
             + process_beeline2
-            + 'src/risco_gestao_risco_consolidado.sql && echo "risco_gestao_risco_consolidado ok"',
+            + '/tmp/repair-raw-tables/src/risco_gestao_risco_consolidado.sql && echo "risco_gestao_risco_consolidado ok"',
         )
 
     repair_conductor
     repair_dock
     repair_neurotech
+    repair_grc
+    repair_ibpj
