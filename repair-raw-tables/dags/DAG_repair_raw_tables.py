@@ -86,6 +86,14 @@ with DAG(
             + 'src/risco_gestao_risco_consolidado.sql && echo "risco_gestao_risco_consolidado ok"',
         )
 
+        repair_ibpj = SSHOperator(
+            task_id="repair_ibpj",
+            ssh_conn_id="test-ssh",
+            command="sh "
+            + process_beeline2
+            + 'src/risco_gestao_risco_consolidado.sql && echo "risco_gestao_risco_consolidado ok"',
+        )
+
     repair_conductor
     repair_dock
     repair_neurotech
