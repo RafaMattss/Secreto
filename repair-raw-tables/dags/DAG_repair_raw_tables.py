@@ -91,7 +91,7 @@ with DAG(
             ssh_conn_id="test-ssh",
             command="sh "
             + process_beeline2
-            + '/tmp/repair-raw-tables/src/risco_gestao_risco_consolidado.sql && echo "risco_gestao_risco_consolidado ok"',
+            + '/tmp/repair-raw-tables/src/internet_banking.sql && echo "internet_banking ok"',
         )
 
     repair_conductor
