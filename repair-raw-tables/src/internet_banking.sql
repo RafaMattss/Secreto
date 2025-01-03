@@ -1,0 +1,1 @@
+MSCK REPAIR TABLE internet_banking_hom.internet_banking_pj;
